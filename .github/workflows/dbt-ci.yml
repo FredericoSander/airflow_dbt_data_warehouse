@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p ~/.dbt
           cat > ~/.dbt/profiles.yml <<EOF
-          jornada_dw:
+          first_dw:
             target: prod
             outputs:
               prod:
@@ -40,10 +40,10 @@ jobs:
           EOF
 
       - name: dbt deps
-        working-directory: jornada_dw
+        working-directory: first_dw
         run: dbt deps --profiles-dir ~/.dbt
 
 
       - name: dbt build
-        working-directory: jornada_dw
+        working-directory: first_dw
         run: dbt build --profiles-dir ~/.dbt
